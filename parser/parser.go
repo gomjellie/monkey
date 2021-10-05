@@ -8,15 +8,15 @@ import (
 )
 
 type Parser struct {
-	l *lexer.Lexer
-	errors []string
-	curToken token.Token // curToken 뒤의 토큰이 peekToken
+	l         *lexer.Lexer
+	errors    []string
+	curToken  token.Token // curToken 뒤의 토큰이 peekToken
 	peekToken token.Token
 }
 
 func New(l *lexer.Lexer) *Parser {
 	p := &Parser{
-		l: l,
+		l:      l,
 		errors: []string{},
 	}
 
@@ -84,7 +84,7 @@ func (p *Parser) parseLetStatement() *ast.LetStatement {
 		p.nextToken()
 	}
 
-	return stmt;
+	return stmt
 }
 
 func (p *Parser) curTokenIs(t token.TokenType) bool {
